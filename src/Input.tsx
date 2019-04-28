@@ -19,7 +19,7 @@ class Input extends React.Component<any, any> {
         return (
             <div>
                 <div>
-                    <input onChange={e => this.handleOnChange(e)} />
+                    <input onChange={e => this.handleOnChange(e)} /><br />
                     <select id="catchpoint">
                         <Dropdown inputEntered={this.state.inputKeys} />
                     </select>
