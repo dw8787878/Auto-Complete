@@ -5,7 +5,7 @@ class Dropdown extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            search:  []
+            search: []
         };
     }
 
@@ -14,31 +14,35 @@ class Dropdown extends React.Component<any, any> {
         if (prevProps.inputEntered !== inputKeys) {
             let self = this;
             axios.get(`https://cors-anywhere.herokuapp.com/http://michaelkozicki.com/auto.php?q=${inputKeys}`)
-            .then(function (response) {
-                console.log("this is response:", response);
-                self.setState({
-                    search: response.data.data
+                .then(function (response) {
+                    console.log("this is response:", response);
+                    self.setState({
+                        search: response.data.data
+                    })
                 })
-            })
-            .catch(function (error) {
-                console.log("this is the error:", error.response);
-            });
+                .catch(function (error) {
+                    console.log("this is the error:", error.response);
+                });
         }
     }
 
     render() {
         console.log("this is inputKeys:", this.state.search);
 
-        return (           
-        <React.Fragment>
-                {
-                    this.state.search && this.state.search.map(function (word: any) {
-                        return (
-                            <option value={word.id}>{word.value}</option>
-                        )
-                    })
-                }
-        </React.Fragment>
+        return (
+            <React.Fragment>
+                <select id="catchpoint" onChange={this.props.selectMenuItem}>
+                    {
+                        this.state.search && this.state.search.map(function (word: any) {
+                            return (
+                                
+                                <option value={JSON.stringify(word)}>{word.value}</option>
+
+                            )
+                        })
+                    }
+                </select>
+            </React.Fragment>
         );
     }
 
