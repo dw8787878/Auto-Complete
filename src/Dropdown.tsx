@@ -5,9 +5,7 @@ class Dropdown extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            search:  [], 
-            history: [],
-            response: false
+            search:  []
         };
     }
 
@@ -19,34 +17,20 @@ class Dropdown extends React.Component<any, any> {
             .then(function (response) {
                 console.log("this is response:", response);
                 self.setState({
-                    search: response.data.data,
-                    response: true
-                })
-                let history = self.state.history;
-                let match = history.filter(function (word: string) {
-                    return word.includes(inputKeys);
+                    search: response.data.data
                 })
             })
             .catch(function (error) {
                 console.log("this is the error:", error.response);
             });
-        // console.log("this is history: ", this.state.history);
-        if (this.state.response){
-            this.setState({
-                response : false
-            })
-            return this.state.history
-        }  else {
-            return [];
-        }
         }
     }
 
     render() {
         console.log("this is inputKeys:", this.state.search);
 
-        return (
-            <React.Fragment>
+        return (           
+        <React.Fragment>
                 {
                     this.state.search && this.state.search.map(function (word: any) {
                         return (
@@ -54,7 +38,7 @@ class Dropdown extends React.Component<any, any> {
                         )
                     })
                 }
-            </React.Fragment>
+        </React.Fragment>
         );
     }
 
