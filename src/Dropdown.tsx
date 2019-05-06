@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 const Dropdown: React.SFC<any> = props => {
     const { message } = props
@@ -27,3 +26,14 @@ const Dropdown: React.SFC<any> = props => {
 }
 
 export default Dropdown
+
+//we want to make the components as simple as possible.
+//therefore, the option here can be a seperate component
+
+//Nice to haves:
+//Look at Google's autocopmlete.  As you hover on a drop down selction item, it gets highlighted.
+//hint: use ul
+//
+//2nd nice have, using up down arrow be able to select item.  And press enter to select.
+
+//Make component work without showDropDown prop.

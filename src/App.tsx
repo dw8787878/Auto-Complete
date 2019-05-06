@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Input from './Input';
 import Table from './Table';
@@ -8,7 +8,7 @@ class App extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      value: 'select',
+      value: '',
       inputKeys: '',
       search: [],
       showDropDown: false
@@ -18,8 +18,8 @@ class App extends React.Component<any, any> {
   }
 
   componentDidUpdate(prevProps: any, prevState: any) {
-    console.log("prevState.inputKeys:", prevState.inputKeys)
-    console.log("this.state.inputKeys:", this.state.inputKeys)
+    //console.log("prevState.inputKeys:", prevState.inputKeys)
+    //console.log("this.state.inputKeys:", this.state.inputKeys)
     let inputKeys = this.state.inputKeys;
     if (prevState.inputKeys !== inputKeys) {
       let self = this;
@@ -41,8 +41,6 @@ class App extends React.Component<any, any> {
     this.setState({
       value: event.target.value,
       showDropDown: false
-    }, () => {
-      console.log(this.state.value);
     })
   }
 
@@ -55,10 +53,23 @@ class App extends React.Component<any, any> {
     return (
       <div>
         <Input selectMenuItem={this.selectMenuItem} handleOnChange={this.handleOnChange} search={this.state.search} showDropDown={this.state.showDropDown}/>
-        <Table />
+        <Table results={this.state.value}/>
       </div>
     );
   }
 }
 
 export default App;
+
+
+//App should be as generic as possible
+//Create a new container folder, and create a new container file.
+//Have Container as a wrap around App.
+
+//Create another folder called Components which will be a sibling of Container
+
+//rename search state to suggestion list.  better clear name.
+
+//Look at tslint and typescript.  Run tslint.
+
+//For the query, store Michael's url in an env variable.

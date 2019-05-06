@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Dropdown from './Dropdown';
 
 const Input: React.SFC<any> = props => {
@@ -13,3 +13,7 @@ const Input: React.SFC<any> = props => {
 }
 
 export default Input
+
+//Create folders to mimic the hiearchy of the componenets.  
+
+//For components we do not need to define types.
