@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Dropdown: React.SFC<any> = props => {
+const Dropdown = (props: any) => {
     const { message } = props
     if (props.showDropDown) {
         return (

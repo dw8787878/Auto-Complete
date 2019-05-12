@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 
-const Input: React.SFC<any> = props => {
+const Input = (props: any) => {
     const { message } = props
 
     return (
