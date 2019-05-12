@@ -1,9 +1,9 @@
 import React from 'react';
-import Dropdown from './Dropdown';
+import Dropdown from '../Dropdown/Dropdown';
 
 const Input: React.SFC<any> = props => {
     const { message } = props
-    
+
     return (
         <div>
              <input onChange={(e)=>props.handleOnChange(e)}></input>
@@ -14,6 +14,6 @@ const Input: React.SFC<any> = props => {
 
 export default Input
 
-//Create folders to mimic the hiearchy of the componenets.  
+//Create folders to mimic the hiearchy of the componenets.
 
 //For components we do not need to define types.

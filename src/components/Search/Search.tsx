@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
-import Input from './Input';
-import Table from './Table';
+import './Search.css';
+import Input from '../Input/Input';
+import Table from '../Table/Table';
 import axios from 'axios';
 
-class App extends React.Component<any, any> {
+class Search extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -59,7 +59,7 @@ class App extends React.Component<any, any> {
   }
 }
 
-export default App;
+export default Search;
 
 
 //App should be as generic as possible
