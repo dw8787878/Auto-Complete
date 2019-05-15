@@ -4,13 +4,18 @@ import Input from '../Input/Input';
 import Table from '../Table/Table';
 import axios from 'axios';
 
+//URL for API to GET suggestions
+const kozicki_api_host = 'http://michaelkozicki.com/auto.php?q=';
+//CORS api
+const cors_api_host = 'https://cors-anywhere.herokuapp.com';
+
 class Search extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
       value: '',
       inputKeys: '',
-      search: [],
+      suggestions: [],
       showDropDown: false
     };
     this.selectMenuItem = this.selectMenuItem.bind(this);
@@ -18,16 +23,14 @@ class Search extends React.Component<any, any> {
   }
 
   componentDidUpdate(prevProps: any, prevState: any) {
-    //console.log("prevState.inputKeys:", prevState.inputKeys)
-    //console.log("this.state.inputKeys:", this.state.inputKeys)
     let inputKeys = this.state.inputKeys;
     if (prevState.inputKeys !== inputKeys) {
       let self = this;
-      axios.get(`https://cors-anywhere.herokuapp.com/http://michaelkozicki.com/auto.php?q=${self.state.inputKeys}`)
+      //console.log(`http://michaelkozicki.com/auto.php?q=${self.state.inputKeys}`);
+      axios.get(`${cors_api_host}/${kozicki_api_host}${self.state.inputKeys}`)
         .then(function (response) {
-          console.log("this is response:", response);
           self.setState({
-            search: response.data.data,
+            suggestions: response.data.data,
             showDropDown : true
           })
         })
@@ -52,7 +55,7 @@ class Search extends React.Component<any, any> {
   render() {
     return (
       <div>
-        <Input selectMenuItem={this.selectMenuItem} handleOnChange={this.handleOnChange} search={this.state.search} showDropDown={this.state.showDropDown}/>
+        <Input selectMenuItem={this.selectMenuItem} handleOnChange={this.handleOnChange} search={this.state.suggestions} showDropDown={this.state.showDropDown}/>
         <Table results={this.state.value}/>
       </div>
     );
@@ -62,14 +65,5 @@ class Search extends React.Component<any, any> {
 export default Search;
 
 
-//App should be as generic as possible
-//Create a new container folder, and create a new container file.
-//Have Container as a wrap around App.
-
-//Create another folder called Components which will be a sibling of Container
-
-//rename search state to suggestion list.  better clear name.
-
 //Look at tslint and typescript.  Run tslint.
-
 //For the query, store Michael's url in an env variable.
