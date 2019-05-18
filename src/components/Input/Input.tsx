@@ -13,7 +13,3 @@ const Input = (props: any) => {
 }
 
 export default Input
-
-//Create folders to mimic the hiearchy of the componenets.
-
-//For components we do not need to define types.

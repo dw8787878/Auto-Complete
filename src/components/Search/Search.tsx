@@ -6,10 +6,23 @@ import axios from 'axios';
 
 //URL for API to GET suggestions
 const kozicki_api_host = 'http://michaelkozicki.com/auto.php?q=';
-//CORS api
+//CORS API
 const cors_api_host = 'https://cors-anywhere.herokuapp.com';
 
-class Search extends React.Component<any, any> {
+interface Props {
+  selectMenuItem?: string;
+  handleOnChange?: string;
+  search?: string;
+}
+
+interface State {
+  value?: string;
+  inputKeys?: string;
+  suggestions?: string[];
+  showDropDown?: boolean;
+}
+
+class Search extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -26,7 +39,6 @@ class Search extends React.Component<any, any> {
     let inputKeys = this.state.inputKeys;
     if (prevState.inputKeys !== inputKeys) {
       let self = this;
-      //console.log(`http://michaelkozicki.com/auto.php?q=${self.state.inputKeys}`);
       axios.get(`${cors_api_host}/${kozicki_api_host}${self.state.inputKeys}`)
         .then(function (response) {
           self.setState({
@@ -63,7 +75,3 @@ class Search extends React.Component<any, any> {
 }
 
 export default Search;
-
-
-//Look at tslint and typescript.  Run tslint.
-//For the query, store Michael's url in an env variable.
