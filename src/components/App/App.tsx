@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import Search from '../Search/Search';
 
-const App = (props: any) => {
+const App = () => {
   return (
     <div>
       <Search />

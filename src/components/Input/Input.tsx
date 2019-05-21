@@ -1,8 +1,8 @@
 import React from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 
+
 const Input = (props: any) => {
-    const { message } = props
 
     return (
         <div>
