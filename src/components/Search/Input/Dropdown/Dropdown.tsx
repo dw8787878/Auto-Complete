@@ -1,5 +1,5 @@
 import React from 'react';
-import Option from '../Option/Option';
+import Option from './Option/Option';
 
 const Dropdown = (props: any) => {
     if (props.showDropDown) {
@@ -7,7 +7,6 @@ const Dropdown = (props: any) => {
             <div>
                 <Option search={props.search} selectMenuItem={props.selectMenuItem}/>
             </div>
-
         )
     } else {
         return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Search.css';
-import Input from '../Input/Input';
-import Table from '../Table/Table';
+import Input from './Input/Input';
+import Table from './Table/Table';
 import axios from 'axios';
 
 //URL for API to GET suggestions
@@ -9,20 +9,14 @@ const kozicki_api_host = 'http://michaelkozicki.com/auto.php?q=';
 //CORS API
 const cors_api_host = 'https://cors-anywhere.herokuapp.com';
 
-interface Props {
-  selectMenuItem?: string;
-  handleOnChange?: string;
-  search?: string;
-}
-
 interface State {
-  value?: string;
+  value: string;
   inputKeys?: string;
   suggestions?: string[];
   showDropDown?: boolean;
 }
 
-class Search extends React.Component<Props, State> {
+class Search extends React.Component<{},State> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -34,7 +28,7 @@ class Search extends React.Component<Props, State> {
     this.selectMenuItem = this.selectMenuItem.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
   }
-
+//if there is a timeout, throw an error..
   componentDidUpdate(prevProps: any, prevState: any) {
     let inputKeys = this.state.inputKeys;
     if (prevState.inputKeys !== inputKeys) {
@@ -60,7 +54,6 @@ class Search extends React.Component<Props, State> {
   }
 
   handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log("this is event.target.value:", e.target.value);
     this.setState({ inputKeys: e.target.value });
   }
 
@@ -75,3 +68,4 @@ class Search extends React.Component<Props, State> {
 }
 
 export default Search;
+

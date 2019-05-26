@@ -1,14 +1,19 @@
 import React from 'react';
 import './Table.css';
 
-class Table extends React.Component<any, any> {
-    constructor(props: any) {
+interface TableProps {
+    results:string;
+}
+
+
+class Table extends React.Component<TableProps, any> {
+    constructor(props: TableProps) {
         super(props);
         this.state = {
             results: []
         }
     }
-    componentDidUpdate(prevProps: any, prevState: any) {
+    componentDidUpdate(prevProps: TableProps, prevState: any) {
         let props = this.props.results
         if (prevProps.results !== props) {
             props = JSON.parse(props);
