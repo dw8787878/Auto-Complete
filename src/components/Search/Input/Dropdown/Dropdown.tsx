@@ -2,18 +2,11 @@ import React from 'react';
 import Option from './Option/Option';
 
 const Dropdown = (props: any) => {
-    if (props.showDropDown) {
-        return (
-            <div>
-                <Option search={props.search} selectMenuItem={props.selectMenuItem}/>
-            </div>
-        )
-    } else {
-        return (
-            <div>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <Option search={props.suggestions} selectMenuItem={props.selectMenuItem} />
+        </div>
+    )
 }
 
 export default Dropdown;

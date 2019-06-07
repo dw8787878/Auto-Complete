@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Search from '../Search/Search';
+import SearchContainer from '../../container/SearchContainer'
 
 const App = () => {
   return (
     <div>
-      <Search />
+      <SearchContainer />
     </div>
   )
 }
