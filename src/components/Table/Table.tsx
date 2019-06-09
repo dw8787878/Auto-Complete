@@ -2,18 +2,18 @@ import React from 'react';
 import './Table.css';
 
 interface TableProps {
-    result:string;
+    result: string;
 }
 
 interface TableState {
-    result:string[];
+    result: any;
 }
 
 class Table extends React.Component<TableProps, TableState> {
     constructor(props: TableProps) {
         super(props);
         this.state = {
-            result: []
+            result: ''
         }
     }
 
@@ -22,15 +22,15 @@ class Table extends React.Component<TableProps, TableState> {
         if (prevProps.result !== props) {
             props = JSON.parse(props);
             this.setState({
-                result: [...this.state.result, ...[props]],
-
-             }, () => {
+                result: props
             })
         }
     }
 
     render() {
-        const allResults = this.state.result
+       const result = this.state.result
+       console.log("this is result:", result)
+       console.log("this is result.id:", result.id)
         return (
             <table className="tg">
                 <tbody>
@@ -39,15 +39,13 @@ class Table extends React.Component<TableProps, TableState> {
                         <th className='tg-0pky'>Weight</th>
                         <th className='tg-0pky'>Value</th>
                     </tr>
-                    {(allResults && allResults.map((result: any) => (
-                        <tr key={result.id}>
-                            <td className='tg-0pk'>{result.id}</td>
-                            <td className='tg-0pk'>{result.weight}</td>
-                            <td className='tg-0pk'>{result.value}</td>
-                        </tr>
-                    )))}
+                    <tr>
+                        <td className='tg-0pk'>{result.id}</td>
+                        <td className='tg-0pk'>{result.weight}</td>
+                        <td className='tg-0pk'>{result.value}</td>
+                    </tr>
                 </tbody>
-            </table>
+            </table >
         )
     }
 }
