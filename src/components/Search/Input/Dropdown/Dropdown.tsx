@@ -1,31 +1,15 @@
 import React from 'react';
 import Option from './Option/Option';
 
-class Dropdown extends React.Component<any, any>{
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            showDropDown: true
-        }
-        this.handleMouseClick = this.handleMouseClick.bind(this);
-    }
-
-    handleMouseClick(event: any) {
-        this.setState({
-            showDropDown: false
-        })
-    }
-
-    render() {
-        return (
-            <div>
-                {this.state.showDropDown && (
-                    <Option search={this.props.suggestions} selectMenuItem={this.props.selectMenuItem} handleMouseClick={this.handleMouseClick} />
-                )
-                }
-            </div>
-        )
-    }
+const Dropdown = (props: any) => {
+    return (
+        <div>
+            {props.showDropDown && (
+                <Option search={props.suggestions} onOptionChange={props.onOptionChange} handleMouseClick={props.handleMouseClick} />
+            )
+            }
+        </div>
+    )
 }
 
 export default Dropdown;
@@ -35,5 +19,3 @@ export default Dropdown;
 //hint: use ul
 //
 //2nd nice have, using up down arrow be able to select item.  And press enter to select.
-
-//Make component work without showDropDown prop.

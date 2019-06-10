@@ -14,10 +14,10 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
     this.state = {
       result: ''
     };
-    this.selectMenuItem = this.selectMenuItem.bind(this);
+    this.onOptionChange = this.onOptionChange.bind(this);
   }
 
-  selectMenuItem(event: any) {
+  onOptionChange(event: any) {
     this.setState({
       result: event.target.value
     })
@@ -26,7 +26,7 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
   render() {
     return (
       <div>
-        <Search selectMenuItem={this.selectMenuItem} result={this.state.result}/>
+        <Search onOptionChange={this.onOptionChange} result={this.state.result}/>
         <Table result={this.state.result} />
       </div>
     );

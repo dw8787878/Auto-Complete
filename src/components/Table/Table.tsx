@@ -50,7 +50,6 @@ class Table extends React.Component<TableProps, TableState> {
 export default Table
 
 
-//we do not need the history of the results.  we can rid of the state.
-//this should be a dumb component
+
 //define result.id weight and value interface
 
