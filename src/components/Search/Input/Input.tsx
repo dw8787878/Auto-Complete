@@ -18,7 +18,6 @@ class Input extends React.Component<any, any> {
         this.handleMouseClick = this.handleMouseClick.bind(this);
     }
 
-    //if there is a timeout, throw an error..
     componentDidUpdate(prevProps: any, prevState: any) {
         let inputKeys = this.state.inputKeys;
         if (prevState.inputKeys !== inputKeys) {
@@ -31,7 +30,11 @@ class Input extends React.Component<any, any> {
                         })
                     })
                     .catch(function (error) {
-                        console.log("this is the error:", error.response);
+                        if (error.code === 'ECONNABORTED') {
+                            throw `A timeout happend on url ${kozicki_api_host}`
+                        } else {
+                            throw `Axios Error: ${error.response}`;
+                        }
                     });
             }
         }
@@ -48,7 +51,6 @@ class Input extends React.Component<any, any> {
         this.setState({
             showDropDown: false
         })
-
     }
 
     render() {
