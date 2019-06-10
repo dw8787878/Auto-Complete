@@ -7,7 +7,7 @@ const Option = (props: any) => {
         {
           props.search && props.search.map(function (word: any, key: number) {
             return (
-              <option key={key} value={JSON.stringify(word)}>{word.value}</option>
+              <option key={key} value={JSON.stringify(word)} onClick={props.handleMouseClick}>{word.value}</option>
             )
           })
         }

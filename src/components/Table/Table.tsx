@@ -28,9 +28,7 @@ class Table extends React.Component<TableProps, TableState> {
     }
 
     render() {
-       const result = this.state.result
-       console.log("this is result:", result)
-       console.log("this is result.id:", result.id)
+        const result = this.state.result
         return (
             <table className="tg">
                 <tbody>

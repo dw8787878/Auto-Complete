@@ -26,7 +26,7 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
   render() {
     return (
       <div>
-        <Search selectMenuItem={this.selectMenuItem} />
+        <Search selectMenuItem={this.selectMenuItem} result={this.state.result}/>
         <Table result={this.state.result} />
       </div>
     );

@@ -1,12 +1,31 @@
 import React from 'react';
 import Option from './Option/Option';
 
-const Dropdown = (props: any) => {
-    return (
-        <div>
-            <Option search={props.suggestions} selectMenuItem={props.selectMenuItem} />
-        </div>
-    )
+class Dropdown extends React.Component<any, any>{
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            showDropDown: true
+        }
+        this.handleMouseClick = this.handleMouseClick.bind(this);
+    }
+
+    handleMouseClick(event: any) {
+        this.setState({
+            showDropDown: false
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.showDropDown && (
+                    <Option search={this.props.suggestions} selectMenuItem={this.props.selectMenuItem} handleMouseClick={this.handleMouseClick} />
+                )
+                }
+            </div>
+        )
+    }
 }
 
 export default Dropdown;

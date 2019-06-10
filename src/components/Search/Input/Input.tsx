@@ -41,7 +41,7 @@ class Input extends React.Component<any, any> {
         return (
             <div>
                 <input onChange={event => this.handleOnChange(event)} />
-                <Dropdown inputEntered={this.props.selectedValue} selectMenuItem={this.props.selectMenuItem} suggestions={this.state.suggestions} />
+                <Dropdown inputEntered={this.props.selectedValue} selectMenuItem={this.props.selectMenuItem} suggestions={this.state.suggestions} result={this.props.result}/>
             </div>
         )
     }

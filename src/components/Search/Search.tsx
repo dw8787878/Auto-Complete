@@ -6,7 +6,7 @@ const Search = (props: any) => {
 
   return (
     <div>
-      <Input selectMenuItem={props.selectMenuItem} />
+      <Input selectMenuItem={props.selectMenuItem} result={props.result}/>
     </div>
   )
 
