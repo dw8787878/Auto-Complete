@@ -5,7 +5,7 @@ import Input from './Input/Input';
 const Search = (props: any) => {
   return (
     <div>
-      <Input onOptionChange={props.onOptionChange} result={props.result}/>
+      <Input onOptionChange={props.onOptionChange} />
     </div>
   )
 }

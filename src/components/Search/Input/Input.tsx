@@ -12,10 +12,9 @@ class Input extends React.Component<any, any> {
         super(props);
         this.state = {
             inputKeys: '',
-            suggestions: [],
-            showDropDown: true
+            suggestions: []
         };
-        this.handleMouseClick = this.handleMouseClick.bind(this);
+
     }
 
     componentDidUpdate(prevProps: any, prevState: any) {
@@ -43,25 +42,25 @@ class Input extends React.Component<any, any> {
     handleOnChange(event: any) {
         this.setState({
             inputKeys: event.target.value,
-            showDropDown: true
+            suggestions: []
         });
-    }
-
-    handleMouseClick(event: any) {
-        this.setState({
-            showDropDown: false
-        })
     }
 
     render() {
         return (
             <div>
                 <input onChange={event => this.handleOnChange(event)} />
-                <Dropdown onOptionChange={this.props.onOptionChange} suggestions={this.state.suggestions} handleMouseClick={this.handleMouseClick}
-                    showDropDown={this.state.showDropDown} />
+                <Dropdown onOptionChange={this.props.onOptionChange} suggestions={this.state.suggestions}
+                />
             </div>
         )
     }
 }
 
 export default Input
+
+//create a value field in input tag to capture value so that we can clear it when a suggestion is clicked.
+
+//get rid of handleMouseClick, and merge with handleOnChange.
+
+//move the show drop down logic to here from dropdown.tsx

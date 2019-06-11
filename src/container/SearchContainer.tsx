@@ -18,14 +18,14 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
 
   onOptionChange(event: any) {
     this.setState({
-      result: event.target.value
+      result: JSON.parse(event.target.value)
     })
   }
 
   render() {
     return (
       <div>
-        <Search onOptionChange={this.onOptionChange} result={this.state.result} />
+        <Search onOptionChange={this.onOptionChange} />
         <Table result={this.state.result} />
       </div>
     );
@@ -33,3 +33,7 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
 }
 
 export default SearchContainer;
+
+// we do not need Search component.  Put Input component directly in here.
+// update structure of input and search.
+
