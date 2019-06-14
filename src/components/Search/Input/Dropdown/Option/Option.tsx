@@ -3,7 +3,7 @@ import React from 'react';
 const Option = (props: any) => {
   return (
     <div>
-      <select id="catchpoint" multiple>
+      <select id="catchpoint" onChange={props.onOptionChange} multiple>
         {
           props.search && props.search.map(function (word: any, key: number) {
             return (
