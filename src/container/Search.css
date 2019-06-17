@@ -7,10 +7,16 @@
 }
 
 #dropdown {
-  position: absolute;
+  position: relative;
+  border-spacing: 0;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  list-style: none;
+  width: 88px;
+  font-size: 12px;
+  z-index: 100;
 }
-
-
 
 /*
  look into scss, and use this instead of css

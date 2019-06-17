@@ -19,7 +19,7 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
 
   onOptionChange(event: any) {
     this.setState({
-      result: JSON.parse(event.target.value)
+      result: JSON.parse(event.target.getAttribute('value'))
     })
   }
 

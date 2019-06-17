@@ -40,8 +40,7 @@ class Input extends React.Component<any, any> {
 
     handleOnChange(event: any) {
         this.setState({
-            inputKeys: event.target.value,
-            suggestions: []
+            inputKeys: event.target.value
         });
     }
 
@@ -62,7 +61,5 @@ class Input extends React.Component<any, any> {
 export default Input
 
 //create a value field in input tag to capture value so that we can clear it when a suggestion is clicked.
-
 //get rid of handleMouseClick, and merge with handleOnChange.
-
 //move the show drop down logic to here from dropdown.tsx

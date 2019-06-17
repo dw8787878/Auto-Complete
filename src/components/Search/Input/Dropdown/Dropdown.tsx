@@ -4,7 +4,7 @@ import Option from './Option/Option';
 const Dropdown = (props: any) => {
     return (
         <div>
-            <select id="dropdown" onChange={props.onOptionChange} multiple>
+            <ul id="dropdown">
                 {
                     props.suggestions && props.suggestions.map(function (word: any, key: number) {
                         return (
@@ -12,7 +12,7 @@ const Dropdown = (props: any) => {
                         )
                     })
                 }
-            </select>
+            </ul>
         </div>
     )
 }
@@ -26,3 +26,4 @@ export default Dropdown;
 //2nd nice have, using up down arrow be able to select item.  And press enter to select.
 
 //Refactor - don't use Select / Option, use UL / LI  if we can't use 1 click event
+

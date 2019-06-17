@@ -1,9 +1,11 @@
 .tg  {
+  position: relative;
   border-collapse:collapse;
   border-spacing:0;
   border-width: 1px;
   border-color: black;
   border-style: solid;
+  z-index: -1;
 }
 
 .tg td {
@@ -31,5 +33,5 @@
 .tg .tg-0pky {
   border-color:inherit;
   text-align:left;
-  vertical-align:top
+  vertical-align:top;
 }
