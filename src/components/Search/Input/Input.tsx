@@ -2,12 +2,21 @@ import React from 'react';
 import Dropdown from './Dropdown/Dropdown';
 import axios from 'axios';
 
+interface InputProps {
+    onOptionChange: Function;
+  }
+
+  interface InputState {
+    inputKeys: string;
+    suggestions: string[];
+  }
+
 //URL for API to GET suggestions
 const kozicki_api_host = 'http://michaelkozicki.com/auto.php?q=';
 //CORS API
 const cors_api_host = 'https://cors-anywhere.herokuapp.com';
 
-class Input extends React.Component<any, any> {
+class Input extends React.Component<InputProps, InputState> {
     constructor(props: any) {
         super(props);
         this.state = {

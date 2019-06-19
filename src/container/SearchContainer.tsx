@@ -4,15 +4,27 @@ import './Search.css';
 import Input from '../components/Search/Input/Input';
 import Table from '../components/Table/Table';
 
+interface Result {
+  id: number;
+  weight: number;
+  name: string;
+  value: number;
+}
+
 interface SearchContainerState {
-  result: any;
+  result: Result;
 }
 
 class SearchContainer extends React.Component<{}, SearchContainerState>{
   constructor(props: any) {
     super(props);
     this.state = {
-      result: ''
+      result: {
+        id: 0,
+        weight: 0,
+        name: '',
+        value: 0
+      }
     };
     this.onOptionChange = this.onOptionChange.bind(this);
   }
