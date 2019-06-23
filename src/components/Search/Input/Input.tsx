@@ -4,20 +4,20 @@ import axios from 'axios';
 
 interface InputProps {
     onOptionChange: Function;
-  }
+}
 
-  interface InputState {
+interface InputState {
     inputKeys: string;
     suggestions: string[];
-  }
+}
 
 //URL for API to GET suggestions
-const kozicki_api_host = 'http://michaelkozicki.com/auto.php?q=';
+const strKozickiApiHost = 'http://michaelkozicki.com/auto.php?q=';
 //CORS API
-const cors_api_host = 'https://cors-anywhere.herokuapp.com';
+const strCorsApiHost = 'https://cors-anywhere.herokuapp.com';
 
 class Input extends React.Component<InputProps, InputState> {
-    constructor(props: any) {
+    constructor(props: InputProps) {
         super(props);
         this.state = {
             inputKeys: '',
@@ -27,12 +27,15 @@ class Input extends React.Component<InputProps, InputState> {
         this.handleOptionChange = this.handleOptionChange.bind(this);
     }
 
-    componentDidUpdate(prevProps: any, prevState: any) {
-        let inputKeys = this.state.inputKeys;
-        if (prevState.inputKeys !== inputKeys) {
-            if (inputKeys.length >= 3) {
+    componentDidUpdate(prevProps: InputProps, prevState: InputState) {
+        let strInputKeys = this.state.inputKeys;
+        if (prevState.inputKeys !== strInputKeys) {
+            this.setState({
+                suggestions: []
+            })
+            if (strInputKeys.length >= 3) {
                 let self = this;
-                axios.get(`${cors_api_host}/${kozicki_api_host}${self.state.inputKeys}`)
+                axios.get(`${strCorsApiHost}/${strKozickiApiHost}${self.state.inputKeys}`)
                     .then(function (response) {
                         self.setState({
                             suggestions: response.data.data
@@ -40,7 +43,7 @@ class Input extends React.Component<InputProps, InputState> {
                     })
                     .catch(function (error) {
                         if (error.code === 'ECONNABORTED') {
-                            throw `A timeout happend on url ${kozicki_api_host}`
+                            throw `A timeout happend on url ${strKozickiApiHost}`
                         } else {
                             throw `Axios Error: ${error.response}`;
                         }
@@ -57,7 +60,6 @@ class Input extends React.Component<InputProps, InputState> {
 
     handleOptionChange = (event: any) => {
         const onOptionChange = this.props.onOptionChange;
-
         if (onOptionChange) {
             onOptionChange(event)
         }
@@ -83,5 +85,3 @@ class Input extends React.Component<InputProps, InputState> {
 }
 
 export default Input
-
-

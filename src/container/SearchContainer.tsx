@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Attributes } from 'react';
 import { render } from 'react-dom';
 import './Search.css';
 import Input from '../components/Search/Input/Input';
@@ -16,7 +16,7 @@ interface SearchContainerState {
 }
 
 class SearchContainer extends React.Component<{}, SearchContainerState>{
-  constructor(props: any) {
+  constructor(props: {}) {
     super(props);
     this.state = {
       result: {

@@ -1,6 +1,16 @@
 import React from 'react';
 
-const Option = (props: any) => {
+interface Word {
+  value: string;
+}
+
+interface OptionProps {
+  key : number;
+  word: Word;
+  onOptionChange:  any;
+}
+
+const Option = (props: OptionProps) => {
   return (
     <li
     key={props.key}
@@ -13,5 +23,3 @@ const Option = (props: any) => {
 }
 
 export default Option;
-
-//try onblur as another click event here.  the cors error was preventing us from testing this.
