@@ -5,19 +5,30 @@ interface Word {
 }
 
 interface OptionProps {
-  key : number;
+  key: number;
   word: Word;
-  onOptionChange:  any;
+  onOptionChange: any;
 }
 
 const Option = (props: OptionProps) => {
+
+  let handleOnMouseOver = (event: any) => {
+    event.target.style.color = "orange";
+  }
+
+  let handleOnMouseOut = (event: any) => {
+    event.target.style.color = "black";
+  }
+
   return (
     <li
-    key={props.key}
-    value={JSON.stringify(props.word)}
-    onClick={props.onOptionChange}
+      key={props.key}
+      value={JSON.stringify(props.word)}
+      onClick={props.onOptionChange}
+      onMouseOver={handleOnMouseOver}
+      onMouseOut={handleOnMouseOut}
     >
-    {props.word.value}
+      {props.word.value}
     </li>
   )
 }

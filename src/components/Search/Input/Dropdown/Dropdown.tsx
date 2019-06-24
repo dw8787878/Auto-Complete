@@ -7,14 +7,15 @@ interface DropdownProps {
 }
 
 const Dropdown = (props: DropdownProps) => {
+    console.log('this is props.suggestions:', props.suggestions)
     return (
-        <div>
-            <ul id="dropdown">
+
+            <ul className="dropdown">
                 {
-                    props.suggestions && props.suggestions.map(function (word: any, key: number) {
+                    props.suggestions && props.suggestions.map(function (word: any, index: number) {
                         return (
                             <Option
-                                key={key}
+                                key={index}
                                 word={word}
                                 onOptionChange={props.onOptionChange}
                             />
@@ -22,14 +23,9 @@ const Dropdown = (props: DropdownProps) => {
                     })
                 }
             </ul>
-        </div>
     )
 }
 
 export default Dropdown;
 
-//Nice to have's:
-//Look at Google's autocomplete.  As you hover on a drop down selction item, it gets highlighted.
-//
 //2nd nice have, using up down arrow be able to select item.  And press enter to select.
-

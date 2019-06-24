@@ -23,7 +23,7 @@ class Input extends React.Component<InputProps, InputState> {
             inputKeys: '',
             suggestions: []
         };
-        this.handleOnChange = this.handleOnChange.bind(this);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
         this.handleOptionChange = this.handleOptionChange.bind(this);
     }
 
@@ -52,7 +52,7 @@ class Input extends React.Component<InputProps, InputState> {
         }
     }
 
-    handleOnChange = (event: any) => {
+    handleKeyDown = (event: any) => {
         this.setState({
             inputKeys: event.target.value
         });
@@ -71,7 +71,7 @@ class Input extends React.Component<InputProps, InputState> {
     render() {
         return (
             <div>
-                <input onChange={this.handleOnChange} />
+                <input onKeyDown={this.handleKeyDown} />
                 {this.state.suggestions && (
                     <Dropdown
                         onOptionChange={this.handleOptionChange}
