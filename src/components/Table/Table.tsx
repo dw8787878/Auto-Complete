@@ -9,7 +9,7 @@ export interface Result {
 }
 
 interface TableProps {
-    result?: Result;
+    result: Result;
 }
 
 export const Table = (props: TableProps) => {
@@ -22,7 +22,7 @@ export const Table = (props: TableProps) => {
                     <th className='tg-0pky'>Weight</th>
                     <th className='tg-0pky'>Value</th>
                 </tr>
-                {Result &&
+                {Result.id &&
                     <tr>
                         <td className='tg-0pk'>{Result.id}</td>
                         <td className='tg-0pk'>{Result.weight}</td>

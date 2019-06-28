@@ -22,9 +22,9 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
     this.onOptionChange = this.onOptionChange.bind(this);
   }
 
-  onOptionChange(val: string) {
+  onOptionChange(result: string) {
     this.setState({
-      result: JSON.parse(val)
+      result: JSON.parse(result)
     })
   }
 
@@ -41,6 +41,5 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
 
 export default SearchContainer;
 
-// change val name
 // get rid of all the any;s
 
