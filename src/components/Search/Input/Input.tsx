@@ -11,10 +11,13 @@ interface InputState {
     suggestions: string[];
 }
 
+//set up suggestions to have the different types for id, weight, and name.
+//We can then do the JSON.parse here, and not in the Search container.
+
 //URL for API to GET suggestions
-const strKozickiApiHost = 'http://michaelkozicki.com/auto.php?q=';
+const KozickiApiHost = 'http://michaelkozicki.com/auto.php?q=';
 //CORS API
-const strCorsApiHost = 'https://cors-anywhere.herokuapp.com';
+const CorsApiHost = 'https://cors-anywhere.herokuapp.com';
 
 class Input extends React.Component<InputProps, InputState> {
     constructor(props: InputProps) {
@@ -35,7 +38,7 @@ class Input extends React.Component<InputProps, InputState> {
             })
             if (strInputKeys.length >= 3) {
                 let self = this;
-                axios.get(`${strCorsApiHost}/${strKozickiApiHost}${self.state.inputKeys}`)
+                axios.get(`${CorsApiHost}/${KozickiApiHost}${self.state.inputKeys}`)
                     .then(function (response) {
                         self.setState({
                             suggestions: response.data.data
@@ -43,7 +46,7 @@ class Input extends React.Component<InputProps, InputState> {
                     })
                     .catch(function (error) {
                         if (error.code === 'ECONNABORTED') {
-                            throw `A timeout happend on url ${strKozickiApiHost}`
+                            throw `A timeout happend on url ${KozickiApiHost}`
                         } else {
                             throw `Axios Error: ${error.response}`;
                         }

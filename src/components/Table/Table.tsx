@@ -1,20 +1,19 @@
 import React from 'react';
 import './Table.css';
 
-interface Result {
-    id: number;
-    weight: number;
-    name: string;
-    value: number;
+export interface Result {
+    id?: number | undefined;
+    weight?: number;
+    name?: string;
+    value?: number;
 }
 
 interface TableProps {
-    result: Result;
+    result?: Result;
 }
 
-const Table = (props: TableProps) => {
-
-    const result = props.result;
+export const Table = (props: TableProps) => {
+    const Result = props.result;
     return (
         <table className="tg">
             <tbody>
@@ -23,16 +22,19 @@ const Table = (props: TableProps) => {
                     <th className='tg-0pky'>Weight</th>
                     <th className='tg-0pky'>Value</th>
                 </tr>
-                <tr>
-                    <td className='tg-0pk'>{result.id}</td>
-                    <td className='tg-0pk'>{result.weight}</td>
-                    <td className='tg-0pk'>{result.value}</td>
-                </tr>
+                {Result &&
+                    <tr>
+                        <td className='tg-0pk'>{Result.id}</td>
+                        <td className='tg-0pk'>{Result.weight}</td>
+                        <td className='tg-0pk'>{Result.value}</td>
+                    </tr>
+                }
             </tbody>
         </table >
     )
 }
 
-export default Table
-
 //define result.id weight and value interface
+//look into conditional rendering - only render if result.* has value.
+//if no result, only render header.
+

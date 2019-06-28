@@ -12,19 +12,24 @@ interface OptionProps {
 
 const Option = (props: OptionProps) => {
 
-  let handleOnMouseOver = (event: any) => {
+  const handleOnMouseOver = (event: any) => {
     event.target.style.color = "orange";
   }
 
-  let handleOnMouseOut = (event: any) => {
+  const handleOnMouseOut = (event: any) => {
     event.target.style.color = "black";
+  }
+
+  const handleOptionChange = (event: any) =>{
+    const val = event.target.getAttribute('value');
+    return props.onOptionChange(val);
   }
 
   return (
     <li
       key={props.key}
       value={JSON.stringify(props.word)}
-      onClick={props.onOptionChange}
+      onClick={handleOptionChange}
       onMouseOver={handleOnMouseOver}
       onMouseOut={handleOnMouseOut}
     >
@@ -34,3 +39,6 @@ const Option = (props: OptionProps) => {
 }
 
 export default Option;
+
+//change all the any's
+// don't use handleMouse Over/Out ; look into CSS hover.

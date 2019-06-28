@@ -2,14 +2,12 @@ import React from 'react';
 import Option from './Option/Option';
 
 interface DropdownProps {
-    onOptionChange: Function;
+    onOptionChange: (val: string)=>void;
     suggestions: string[];
 }
 
 const Dropdown = (props: DropdownProps) => {
-    console.log('this is props.suggestions:', props.suggestions)
     return (
-
             <ul className="dropdown">
                 {
                     props.suggestions && props.suggestions.map(function (word: any, index: number) {
@@ -29,3 +27,4 @@ const Dropdown = (props: DropdownProps) => {
 export default Dropdown;
 
 //2nd nice have, using up down arrow be able to select item.  And press enter to select.
+// Look into react conditional rendering to display component.
