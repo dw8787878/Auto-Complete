@@ -33,8 +33,3 @@ export const Table = (props: TableProps) => {
         </table >
     )
 }
-
-//define result.id weight and value interface
-//look into conditional rendering - only render if result.* has value.
-//if no result, only render header.
-

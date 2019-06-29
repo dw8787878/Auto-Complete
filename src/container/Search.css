@@ -18,6 +18,11 @@
   z-index: 100;
 }
 
+li:hover {
+  background-color: gold;
+}
+
+
 /*
  look into scss, and use this instead of css
 

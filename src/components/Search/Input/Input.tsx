@@ -37,10 +37,11 @@ class Input extends React.Component<InputProps, InputState> {
                 suggestions: []
             })
             if (strInputKeys.length >= 3) {
-                let self = this;
-                axios.get(`${CorsApiHost}/${KozickiApiHost}${self.state.inputKeys}`)
+                const Self = this;
+                axios.get(`${CorsApiHost}/${KozickiApiHost}${Self.state.inputKeys}`)
                     .then(function (response) {
-                        self.setState({
+                        console.log('this is response.data.data:', response.data.data)
+                        Self.setState({
                             suggestions: response.data.data
                         })
                     })
@@ -62,9 +63,9 @@ class Input extends React.Component<InputProps, InputState> {
     }
 
     handleOptionChange = (event: any) => {
-        const onOptionChange = this.props.onOptionChange;
-        if (onOptionChange) {
-            onOptionChange(event)
+        const OnOptionChange = this.props.onOptionChange;
+        if (OnOptionChange) {
+            OnOptionChange(event)
         }
         this.setState({
             suggestions: []
