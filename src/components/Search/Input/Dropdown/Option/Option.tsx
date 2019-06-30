@@ -12,16 +12,15 @@ interface OptionProps {
 
 const Option = (props: OptionProps) => {
 
-  const handleOptionChange = (event: any) =>{
-    const Item = event.target.getAttribute('value');
-    return props.onOptionChange(Item);
+  const HandleOptionChange = (event: any) =>{
+    return props.onOptionChange(event.target.getAttribute('value'));
   }
 
   return (
     <li
       key={props.key}
       value={JSON.stringify(props.word)}
-      onClick={handleOptionChange}
+      onClick={HandleOptionChange}
     >
       {props.word.value}
     </li>
