@@ -1,18 +1,15 @@
-import React from 'react';
+import React, { Key } from 'react';
 import Dropdown from './Dropdown/Dropdown';
 import axios from 'axios';
 
 interface InputProps {
-    onOptionChange: Function;
+    onOptionChange: (val: string) => void;
 }
 
 interface InputState {
     inputKeys: string;
     suggestions: string[];
 }
-
-//set up suggestions to have the different types for id, weight, and name.
-//We can then do the JSON.parse here, and not in the Search container.
 
 //URL for API to GET suggestions
 const KozickiApiHost = 'http://michaelkozicki.com/auto.php?q=';
@@ -40,7 +37,6 @@ class Input extends React.Component<InputProps, InputState> {
                 const Self = this;
                 axios.get(`${CorsApiHost}/${KozickiApiHost}${Self.state.inputKeys}`)
                     .then(function (response) {
-                        console.log('this is response.data.data:', response.data.data)
                         Self.setState({
                             suggestions: response.data.data
                         })
@@ -56,9 +52,9 @@ class Input extends React.Component<InputProps, InputState> {
         }
     }
 
-    handleKeyDown = (event: any) => {
+    handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         this.setState({
-            inputKeys: event.target.value
+            inputKeys: event.currentTarget.value
         });
     }
 
@@ -89,3 +85,6 @@ class Input extends React.Component<InputProps, InputState> {
 }
 
 export default Input
+
+//set up suggestions to have the different types for id, weight, and name.
+//We can then do the JSON.parse here, and not in the Search container.

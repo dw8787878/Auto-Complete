@@ -2,7 +2,7 @@ import React from 'react';
 import Option from './Option/Option';
 
 interface DropdownProps {
-    onOptionChange: (val: string) => void;
+    onOptionChange:  (val: string | null) => void;
     suggestions: string[];
 }
 

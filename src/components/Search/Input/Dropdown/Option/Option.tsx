@@ -7,13 +7,13 @@ interface Word {
 interface OptionProps {
   key: number;
   word: Word;
-  onOptionChange: any;
+  onOptionChange: (val: string | null) => void;
 }
 
 const Option = (props: OptionProps) => {
 
-  const HandleOptionChange = (event: any) =>{
-    return props.onOptionChange(event.target.getAttribute('value'));
+  const HandleOptionChange = (event: React.MouseEvent<HTMLLIElement>) => {
+    return props.onOptionChange(event.currentTarget.getAttribute('value'));
   }
 
   return (
@@ -27,4 +27,3 @@ const Option = (props: OptionProps) => {
   )
 }
 export default Option;
-//change all the any's
