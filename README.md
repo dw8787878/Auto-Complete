@@ -7,6 +7,9 @@ Dropdown menu project with React and TypeScript
 ## Code style guide
 
 - We use [Hungarian variable notation](https://en.wikipedia.org/wiki/Hungarian_notation)
+- For functions or global variables, the name should start with uppercase.
+- For variables within a function, the name should start with lowercase.
+
 - Pay attention to the linter!
 - Use semicolons
 - Two spaces
@@ -16,5 +19,9 @@ Dropdown menu project with React and TypeScript
 ## Commit message guide
 
 [See here](https://seesparkbox.com/foundry/semantic_commit_messages)
+
+## Nice to haves - upcoming features
+
+- Using keybard up down arrow, and beihng able to select an item.  And then press enter keyboard to select.
 
 

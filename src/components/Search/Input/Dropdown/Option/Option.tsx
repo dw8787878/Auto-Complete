@@ -1,26 +1,25 @@
 import React from 'react';
 
-interface Word {
-  value: string;
-}
-
 interface OptionProps {
   key: number;
-  word: Word;
-  onOptionChange: (val: string | null) => void;
+  word: any;
+  onOptionChange: (val: string) => void;
 }
 
 const Option = (props: OptionProps) => {
-
-  const HandleOptionChange = (event: React.MouseEvent<HTMLLIElement>) => {
-    return props.onOptionChange(event.currentTarget.getAttribute('value'));
+  const handleOptionChange = (event: React.MouseEvent<HTMLLIElement>) => {
+    let optionValue = event.currentTarget.getAttribute('value');
+    if (optionValue !== null) {
+      return props.onOptionChange(optionValue as string);
+    }
   }
 
   return (
     <li
+      id="dropDownItem"
       key={props.key}
       value={JSON.stringify(props.word)}
-      onClick={HandleOptionChange}
+      onClick={handleOptionChange}
     >
       {props.word.value}
     </li>

@@ -4,7 +4,6 @@ import './Table.css';
 export interface Result {
     id: number | null;
     weight: number | null;
-    name: string | null;
     value: number | null;
 }
 

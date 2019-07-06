@@ -18,12 +18,17 @@
   z-index: 100;
 }
 
-li:hover {
+#dropDownItem:hover {
   background-color: gold;
 }
 
 
 /*
  look into scss, and use this instead of css
+- make the header a different color
+- add some margin to the left
+- make the input and drop down box width larger to accomodate the large output
+- make the gap between the drop down and the input box smaller
+
 
 */

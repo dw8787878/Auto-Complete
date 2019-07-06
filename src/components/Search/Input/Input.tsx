@@ -33,11 +33,11 @@ class Input extends React.Component<InputProps, InputState> {
             this.setState({
                 suggestions: []
             })
-            if (strInputKeys.length >= 3) {
-                const Self = this;
-                axios.get(`${CorsApiHost}/${KozickiApiHost}${Self.state.inputKeys}`)
+            if (strInputKeys.length >= 4) {
+                const self = this;
+                axios.get(`${CorsApiHost}/${KozickiApiHost}${self.state.inputKeys}`)
                     .then(function (response) {
-                        Self.setState({
+                        self.setState({
                             suggestions: response.data.data
                         })
                     })
@@ -58,11 +58,8 @@ class Input extends React.Component<InputProps, InputState> {
         });
     }
 
-    handleOptionChange = (event: any) => {
-        const OnOptionChange = this.props.onOptionChange;
-        if (OnOptionChange) {
-            OnOptionChange(event)
-        }
+    handleOptionChange = (event: string) => {
+        this.props.onOptionChange(event);
         this.setState({
             suggestions: []
         })
@@ -85,6 +82,3 @@ class Input extends React.Component<InputProps, InputState> {
 }
 
 export default Input
-
-//set up suggestions to have the different types for id, weight, and name.
-//We can then do the JSON.parse here, and not in the Search container.

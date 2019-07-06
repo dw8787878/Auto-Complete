@@ -15,7 +15,6 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
       result: {
         id: null,
         weight: null,
-        name: null,
         value: null
       }
     };
@@ -29,17 +28,14 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
   }
 
   render() {
-    const Result = this.state.result;
+    const result = this.state.result;
     return (
       <div>
         <Input onOptionChange={this.onOptionChange} />
-        <Table result={Result} />
+        <Table result={result} />
       </div>
     );
   }
 }
 
 export default SearchContainer;
-
-// get rid of all the any;s
-
