@@ -2,7 +2,7 @@ import React from 'react';
 import Option from './Option/Option';
 
 interface DropdownProps {
-    onOptionChange:  (val: string) => void;
+    OnOptionChange:  (val: string) => void;
     suggestions: string[];
 }
 
@@ -16,7 +16,7 @@ const Dropdown = (props: DropdownProps) => {
                             <Option
                                 key={index}
                                 word={word}
-                                onOptionChange={props.onOptionChange}
+                                OnOptionChange={props.OnOptionChange}
                             />
                         )
                     })

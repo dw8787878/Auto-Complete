@@ -3,7 +3,7 @@ import Dropdown from './Dropdown/Dropdown';
 import axios from 'axios';
 
 interface InputProps {
-    onOptionChange: (val: string) => void;
+    OnOptionChange: (val: string) => void;
 }
 
 interface InputState {
@@ -23,8 +23,8 @@ class Input extends React.Component<InputProps, InputState> {
             inputKeys: '',
             suggestions: []
         };
-        this.handleKeyDown = this.handleKeyDown.bind(this);
-        this.handleOptionChange = this.handleOptionChange.bind(this);
+        this.HandleKeyDown = this.HandleKeyDown.bind(this);
+        this.HandleOptionChange = this.HandleOptionChange.bind(this);
     }
 
     componentDidUpdate(prevProps: InputProps, prevState: InputState) {
@@ -52,14 +52,14 @@ class Input extends React.Component<InputProps, InputState> {
         }
     }
 
-    handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    HandleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         this.setState({
             inputKeys: event.currentTarget.value
         });
     }
 
-    handleOptionChange = (event: string) => {
-        this.props.onOptionChange(event);
+    HandleOptionChange = (event: string) => {
+        this.props.OnOptionChange(event);
         this.setState({
             suggestions: []
         })
@@ -68,10 +68,10 @@ class Input extends React.Component<InputProps, InputState> {
     render() {
         return (
             <div>
-                <input onKeyDown={this.handleKeyDown} />
+                <input onKeyDown={this.HandleKeyDown} />
                 {this.state.suggestions && (
                     <Dropdown
-                        onOptionChange={this.handleOptionChange}
+                        OnOptionChange={this.HandleOptionChange}
                         suggestions={this.state.suggestions}
                     />
                 )

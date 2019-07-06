@@ -18,10 +18,10 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
         value: null
       }
     };
-    this.onOptionChange = this.onOptionChange.bind(this);
+    this.OnOptionChange = this.OnOptionChange.bind(this);
   }
 
-  onOptionChange(result: string) {
+  OnOptionChange(result: string) {
     this.setState({
       result: JSON.parse(result)
     })
@@ -31,7 +31,7 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
     const result = this.state.result;
     return (
       <div>
-        <Input onOptionChange={this.onOptionChange} />
+        <Input OnOptionChange={this.OnOptionChange} />
         <Table result={result} />
       </div>
     );

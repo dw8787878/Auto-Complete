@@ -3,14 +3,14 @@ import React from 'react';
 interface OptionProps {
   key: number;
   word: any;
-  onOptionChange: (val: string) => void;
+  OnOptionChange: (val: string) => void;
 }
 
 const Option = (props: OptionProps) => {
-  const handleOptionChange = (event: React.MouseEvent<HTMLLIElement>) => {
+  const HandleOptionChange = (event: React.MouseEvent<HTMLLIElement>) => {
     let optionValue = event.currentTarget.getAttribute('value');
     if (optionValue !== null) {
-      return props.onOptionChange(optionValue as string);
+      return props.OnOptionChange(optionValue as string);
     }
   }
 
@@ -19,7 +19,7 @@ const Option = (props: OptionProps) => {
       id="dropDownItem"
       key={props.key}
       value={JSON.stringify(props.word)}
-      onClick={handleOptionChange}
+      onClick={HandleOptionChange}
     >
       {props.word.value}
     </li>
