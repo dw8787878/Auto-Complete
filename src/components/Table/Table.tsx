@@ -2,9 +2,9 @@ import React from 'react';
 import './Table.css';
 
 export interface Result {
-    id: number | null;
-    weight: number | null;
-    value: number | null;
+    id?: number;
+    weight?: number;
+    value?: number;
 }
 
 interface TableProps {
@@ -12,7 +12,7 @@ interface TableProps {
 }
 
 export const Table = (props: TableProps) => {
-    const Result = props.result;
+    const result = props.result;
     return (
         <table className="tg">
             <tbody>
@@ -21,13 +21,11 @@ export const Table = (props: TableProps) => {
                     <th className='tg-0pky'>Weight</th>
                     <th className='tg-0pky'>Value</th>
                 </tr>
-                {Result.id &&
-                    <tr>
-                        <td className='tg-0pk'>{Result.id}</td>
-                        <td className='tg-0pk'>{Result.weight}</td>
-                        <td className='tg-0pk'>{Result.value}</td>
-                    </tr>
-                }
+                <tr>
+                    <td className='tg-0pk'>{result.id}</td>
+                    <td className='tg-0pk'>{result.weight}</td>
+                    <td className='tg-0pk'>{result.value}</td>
+                </tr>
             </tbody>
         </table >
     )

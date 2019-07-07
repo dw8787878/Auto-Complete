@@ -13,9 +13,9 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
     super(props);
     this.state = {
       result: {
-        id: null,
-        weight: null,
-        value: null
+        id: undefined,
+        weight: undefined,
+        value: undefined
       }
     };
     this.OnOptionChange = this.OnOptionChange.bind(this);
