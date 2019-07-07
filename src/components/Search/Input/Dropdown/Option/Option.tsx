@@ -1,8 +1,9 @@
 import React from 'react';
+import { Word } from '../Dropdown'
 
 interface OptionProps {
   key: number;
-  word: any;
+  word: Word;
   OnOptionChange: (val: string) => void;
 }
 

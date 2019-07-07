@@ -1,5 +1,5 @@
 import React, { Key } from 'react';
-import Dropdown from './Dropdown/Dropdown';
+import {Dropdown, Word} from './Dropdown/Dropdown';
 import axios from 'axios';
 
 interface InputProps {
@@ -8,7 +8,7 @@ interface InputProps {
 
 interface InputState {
     inputKeys: string;
-    suggestions: string[];
+    suggestions: Word[];
 }
 
 //URL for API to GET suggestions

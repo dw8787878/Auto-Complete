@@ -3,15 +3,22 @@ import Option from './Option/Option';
 
 interface DropdownProps {
     OnOptionChange:  (val: string) => void;
-    suggestions: string[];
+    suggestions: Word[];
 }
 
-const Dropdown = (props: DropdownProps) => {
+export interface Word {
+    id: number,
+    value: string,
+    weight: number
+}
+
+export const Dropdown = (props: DropdownProps) => {
     if (props.suggestions.length > 0) {
+
         return (
             <ul className="dropdown">
                 {
-                    props.suggestions.map(function (word: string, index: number) {
+                    props.suggestions.map(function (word: Word, index: number) {
                         return (
                             <Option
                                 key={index}
@@ -26,5 +33,3 @@ const Dropdown = (props: DropdownProps) => {
     }
     return null;
 }
-
-export default Dropdown;
