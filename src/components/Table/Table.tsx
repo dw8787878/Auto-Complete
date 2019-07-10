@@ -14,17 +14,17 @@ interface TableProps {
 export const Table = (props: TableProps) => {
     const result = props.result;
     return (
-        <table className="tg">
+        <table className="table">
             <tbody>
                 <tr>
-                    <th className='tg-0pky'>ID</th>
-                    <th className='tg-0pky'>Weight</th>
-                    <th className='tg-0pky'>Value</th>
+                    <th><div id="font-th">ID</div></th>
+                    <th><div id="font-th">Weight</div></th>
+                    <th><div id="font-th">Value</div></th>
                 </tr>
                 <tr>
-                    <td className='tg-0pk'>{result.id}</td>
-                    <td className='tg-0pk'>{result.weight}</td>
-                    <td className='tg-0pk'>{result.value}</td>
+                    <td><div id="font-td">{result.id}</div></td>
+                    <td><div id="font-td">{result.weight}</div></td>
+                    <td><div id="font-td">{result.value}</div></td>
                 </tr>
             </tbody>
         </table >

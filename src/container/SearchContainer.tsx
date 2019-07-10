@@ -1,6 +1,6 @@
 import React, { Attributes } from 'react';
 import { render } from 'react-dom';
-import './Search.css';
+import './SearchContainer.css';
 import Input from '../components/Search/Input/Input';
 import { Result, Table } from '../components/Table/Table';
 
@@ -30,7 +30,7 @@ class SearchContainer extends React.Component<{}, SearchContainerState>{
   render() {
     const result = this.state.result;
     return (
-      <div>
+      <div id="search-container">
         <Input OnOptionChange={this.OnOptionChange} />
         <Table result={result} />
       </div>
