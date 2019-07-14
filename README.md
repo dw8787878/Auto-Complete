@@ -24,4 +24,7 @@ Dropdown menu project with React and TypeScript
 
 - Using keybard up down arrow, and beihng able to select an item.  And then press enter keyboard to select.
 
+## Demo
 
+- Deployed here:  https://dropdown-dw.herokuapp.com/
+(Note, I am using the free tier and app will go to sleep after 1 hr of inactivity which will then require patience for the app to spin up again)
