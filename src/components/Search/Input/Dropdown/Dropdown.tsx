@@ -1,5 +1,6 @@
 import React from 'react';
 import Option from './Option/Option';
+import './Dropdown.css';
 
 interface DropdownProps {
     OnOptionChange:  (val: string) => void;

@@ -1,6 +1,7 @@
 import React, { Key } from 'react';
 import {Dropdown, Word} from './Dropdown/Dropdown';
 import axios from 'axios';
+import './Input.css';
 
 interface InputProps {
     OnOptionChange: (val: string) => void;
@@ -68,7 +69,7 @@ class Input extends React.Component<InputProps, InputState> {
     render() {
         return (
             <div>
-                <input onKeyDown={this.HandleKeyDown} />
+                <input className="dropDownInput" onKeyDown={this.HandleKeyDown} />
                 {this.state.suggestions && (
                     <Dropdown
                         OnOptionChange={this.HandleOptionChange}
