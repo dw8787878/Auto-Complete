@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Description
 
-Dropdown menu project with React and TypeScript
+Dropdown menu project with React, TypeScript, and Sass
 
 ## Code style guide
 
@@ -22,7 +22,7 @@ Dropdown menu project with React and TypeScript
 
 ## Nice to haves - upcoming features
 
-- Using keybard up down arrow, and beihng able to select an item.  And then press enter keyboard to select.
+- Using keybard up down arrow, and being able to select an item.  And then press enter keyboard to select.
 
 ## Demo
 
