@@ -19,11 +19,11 @@ export const Dropdown = (props: IDropdownProps) => {
         return (
             <ul className="dropdown">
                 {
-                    props.suggestions.map(function (word: IWord, index: number) {
+                    props.suggestions.map(function (suggestion: IWord, index: number) {
                         return (
                             <Option
                                 key={index}
-                                word={word}
+                                word={suggestion}
                                 OnOptionChange={props.OnOptionChange}
                             />
                         )

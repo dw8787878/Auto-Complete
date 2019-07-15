@@ -2,7 +2,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Description
 
-Dropdown menu project with React, TypeScript, and Sass
+Dropdown menu exercise with React, TypeScript, and Sass.
+
+The purpose of this exercise is to create an input and a table component in React to display type ahead information, and object data in a tabular format.
+
+No state management app such as Redux was purposely not used.
+
 
 ## Code style guide
 
