@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import SearchContainer from '../../container/SearchContainer'
+import SearchContainer from './container/SearchContainer'
 
 const App = () => {
   return (

@@ -1,17 +1,17 @@
 import React from 'react';
 import './Table.css';
 
-export interface Result {
+export interface IResult {
     id?: number;
     weight?: number;
     value?: number;
 }
 
-interface TableProps {
-    result: Result;
+interface ITableProps {
+    result: IResult;
 }
 
-export const Table = (props: TableProps) => {
+export const Table = (props: ITableProps) => {
     const result = props.result;
     return (
         <table className="table">

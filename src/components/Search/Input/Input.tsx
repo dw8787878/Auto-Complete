@@ -1,15 +1,15 @@
 import React, { Key } from 'react';
-import {Dropdown, Word} from './Dropdown/Dropdown';
+import {Dropdown, IWord} from './Dropdown/Dropdown';
 import axios from 'axios';
 import './Input.css';
 
-interface InputProps {
+interface IInputProps {
     OnOptionChange: (val: string) => void;
 }
 
-interface InputState {
+interface IInputState {
     inputKeys: string;
-    suggestions: Word[];
+    suggestions: IWord[];
 }
 
 //URL for API to GET suggestions
@@ -17,8 +17,8 @@ const KozickiApiHost = 'http://michaelkozicki.com/auto.php?q=';
 //CORS API
 const CorsApiHost = 'https://cors-anywhere.herokuapp.com';
 
-class Input extends React.Component<InputProps, InputState> {
-    constructor(props: InputProps) {
+class Input extends React.Component<IInputProps, IInputState> {
+    constructor(props: IInputProps) {
         super(props);
         this.state = {
             inputKeys: '',
@@ -28,7 +28,7 @@ class Input extends React.Component<InputProps, InputState> {
         this.HandleOptionChange = this.HandleOptionChange.bind(this);
     }
 
-    componentDidUpdate(prevProps: InputProps, prevState: InputState) {
+    componentDidUpdate(prevProps: IInputProps, prevState: IInputState) {
         let strInputKeys = this.state.inputKeys;
         if (prevState.inputKeys !== strInputKeys) {
             this.setState({

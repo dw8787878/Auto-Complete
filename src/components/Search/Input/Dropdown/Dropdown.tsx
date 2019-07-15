@@ -2,24 +2,24 @@ import React from 'react';
 import Option from './Option/Option';
 import './Dropdown.css';
 
-interface DropdownProps {
+interface IDropdownProps {
     OnOptionChange:  (val: string) => void;
-    suggestions: Word[];
+    suggestions: IWord[];
 }
 
-export interface Word {
+export interface IWord {
     id: number,
     value: string,
     weight: number
 }
 
-export const Dropdown = (props: DropdownProps) => {
+export const Dropdown = (props: IDropdownProps) => {
     if (props.suggestions.length > 0) {
 
         return (
             <ul className="dropdown">
                 {
-                    props.suggestions.map(function (word: Word, index: number) {
+                    props.suggestions.map(function (word: IWord, index: number) {
                         return (
                             <Option
                                 key={index}

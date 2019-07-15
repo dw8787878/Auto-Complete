@@ -1,13 +1,13 @@
 import React from 'react';
-import { Word } from '../Dropdown'
+import { IWord } from '../Dropdown'
 
-interface OptionProps {
+interface IOptionProps {
   key: number;
-  word: Word;
+  word: IWord;
   OnOptionChange: (val: string) => void;
 }
 
-const Option = (props: OptionProps) => {
+const Option = (props: IOptionProps) => {
   const HandleOptionChange = (event: React.MouseEvent<HTMLLIElement>) => {
     let optionValue = event.currentTarget.getAttribute('value');
     if (optionValue !== null) {

@@ -2,13 +2,13 @@ import React, { Attributes } from 'react';
 import { render } from 'react-dom';
 import './SearchContainer.css';
 import Input from '../components/Search/Input/Input';
-import { Result, Table } from '../components/Table/Table';
+import { IResult, Table } from '../components/Table/Table';
 
-interface SearchContainerState {
-  result: Result;
+interface ISearchContainerState {
+  result: IResult;
 }
 
-class SearchContainer extends React.Component<{}, SearchContainerState>{
+class SearchContainer extends React.Component<{}, ISearchContainerState>{
   constructor(props: {}) {
     super(props);
     this.state = {
