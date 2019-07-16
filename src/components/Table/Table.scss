@@ -1,4 +1,5 @@
-.table  {
+.table {
+
   position: relative;
   border-collapse:collapse;
   border-spacing:0;
@@ -6,9 +7,6 @@
   border-color: black;
   border-style: solid;
   z-index: -50;
-}
-
-.table {
 
   td {
     font-family:Arial, sans-serif;
@@ -20,9 +18,6 @@
     border-right-style: solid;
     border-right-width: 1px;
   }
-}
-
-.table {
 
   th {
     padding:10px 80px;
@@ -46,3 +41,4 @@
     }
   }
 }
+
