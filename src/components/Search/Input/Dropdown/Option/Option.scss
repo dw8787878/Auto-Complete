@@ -2,8 +2,14 @@
   background-color: gold;
 }
 
+#optionRow:hover:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 #optionFont {
   font-family:Arial, sans-serif;
   font-size:14px;
-  padding-left: 2px;
+  padding-left: 3%;
+  padding-top: 1%;
 }
