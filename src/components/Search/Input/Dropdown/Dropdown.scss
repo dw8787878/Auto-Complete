@@ -1,18 +1,12 @@
-.dropdown {
+#dropdown {
   position: absolute;
+  padding: 0px;
   margin-top: .1%;
-  padding: 0%;
-  border-spacing: 0;
   border-width: 1px;
   border-color: black;
   border-style: solid;
   background: white;
   list-style: none;
-  width: 183px;
-  font-size: 12px;
+  width: 182px;
   z-index: 100;
-}
-
-#dropDownItem:hover {
-  background-color: gold;
 }

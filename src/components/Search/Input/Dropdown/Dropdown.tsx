@@ -17,7 +17,7 @@ export const Dropdown = (props: IDropdownProps) => {
     if (props.suggestions.length > 0) {
 
         return (
-            <ul className="dropdown">
+            <ul id="dropdown">
                 {
                     props.suggestions.map(function (suggestion: IWord, index: number) {
                         return (

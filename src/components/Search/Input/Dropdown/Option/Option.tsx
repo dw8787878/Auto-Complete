@@ -1,5 +1,6 @@
 import React from 'react';
 import { IWord } from '../Dropdown'
+import './Option.css';
 
 interface IOptionProps {
   key: number;
@@ -17,12 +18,13 @@ const Option = (props: IOptionProps) => {
 
   return (
     <li
-      id="dropDownItem"
+      id="optionRow"
       key={props.key}
       value={JSON.stringify(props.word)}
       onClick={HandleOptionChange}
-    >
-      {props.word.value}
+    ><div id="optionFont">
+        {props.word.value}
+      </div>
     </li>
   )
 }

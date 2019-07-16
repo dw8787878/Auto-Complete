@@ -1,2 +1,6 @@
 .dropDownInput {
-  width: 180px; }
+  height: 20px;
+  width: 180px;
+  padding: .2%;
+  font-family: Arial, sans-serif;
+  font-size: 14px; }
