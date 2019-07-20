@@ -1,6 +1,9 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.5.0"
+  },
   "private": true,
   "dependencies": {
     "@types/jest": "^24.0.15",
