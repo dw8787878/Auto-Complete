@@ -34,7 +34,7 @@ class Input extends React.Component<IInputProps, IInputState> {
             this.setState({
                 suggestions: []
             })
-            if (strInputKeys.length >= 4) {
+            if (strInputKeys.length >= 3) {
                 const self = this;
                 axios.get(`${CorsApiHost}/${KozickiApiHost}${self.state.inputKeys}`)
                     .then(function (response) {
@@ -54,22 +54,33 @@ class Input extends React.Component<IInputProps, IInputState> {
     }
 
     HandleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        this.setState({
-            inputKeys: event.currentTarget.value
-        });
+
+        let deleteKeyPressed = event.keyCode || event.charCode;
+        if (deleteKeyPressed == 8 || deleteKeyPressed == 46) {
+            this.setState({
+                inputKeys: this.state.inputKeys.slice(0,-1)
+            })
+        } else {
+            this.setState({
+                inputKeys: this.state.inputKeys.concat(event.key)
+            });
+        }
     }
 
     HandleOptionChange = (event: string) => {
         this.props.OnOptionChange(event);
         this.setState({
-            suggestions: []
+            suggestions: [],
+            inputKeys: ''
         })
+
+
     }
 
     render() {
         return (
             <div>
-                <input className="dropDownInput" onKeyDown={this.HandleKeyDown} />
+                <input className="dropDownInput" value={this.state.inputKeys} onKeyDown={this.HandleKeyDown} />
                 {this.state.suggestions && (
                     <Dropdown
                         OnOptionChange={this.HandleOptionChange}
