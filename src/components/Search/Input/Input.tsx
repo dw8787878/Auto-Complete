@@ -73,8 +73,6 @@ class Input extends React.Component<IInputProps, IInputState> {
             suggestions: [],
             inputKeys: ''
         })
-
-
     }
 
     render() {
