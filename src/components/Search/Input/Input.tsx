@@ -60,6 +60,7 @@ class Input extends React.Component<IInputProps, IInputState> {
     }
 
     HandleOptionChange = (event: string) => {
+        this.props.OnOptionChange(event);
         this.setState({
             suggestions: [],
             inputKeys: ''
