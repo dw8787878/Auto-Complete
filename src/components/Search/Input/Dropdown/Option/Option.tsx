@@ -12,6 +12,7 @@ const Option = (props: IOptionProps) => {
   const HandleOptionChange = (event: React.MouseEvent<HTMLLIElement>) => {
     let optionValue = event.currentTarget.getAttribute('value');
     if (optionValue !== null) {
+    //  console.log("props.OnOptionChange:", props.OnOptionChange)
       return props.OnOptionChange(optionValue as string);
     }
   }

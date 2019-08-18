@@ -53,22 +53,13 @@ class Input extends React.Component<IInputProps, IInputState> {
         }
     }
 
-    HandleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-
-        let deleteKeyPressed = event.keyCode || event.charCode;
-        if (deleteKeyPressed == 8 || deleteKeyPressed == 46) {
-            this.setState({
-                inputKeys: this.state.inputKeys.slice(0,-1)
-            })
-        } else {
-            this.setState({
-                inputKeys: this.state.inputKeys.concat(event.key)
-            });
-        }
+    HandleKeyDown = (event: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            inputKeys: event.target.value
+        });
     }
 
     HandleOptionChange = (event: string) => {
-        this.props.OnOptionChange(event);
         this.setState({
             suggestions: [],
             inputKeys: ''
@@ -78,8 +69,9 @@ class Input extends React.Component<IInputProps, IInputState> {
     render() {
         return (
             <div>
-                <input className="dropDownInput" value={this.state.inputKeys} onKeyDown={this.HandleKeyDown} />
-                {this.state.suggestions && (
+                <input className="dropDownInput" value={this.state.inputKeys} onChange={this.HandleKeyDown} />
+                {
+                this.state.suggestions && (
                     <Dropdown
                         OnOptionChange={this.HandleOptionChange}
                         suggestions={this.state.suggestions}
